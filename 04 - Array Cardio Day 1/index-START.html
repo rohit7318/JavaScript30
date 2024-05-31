@@ -57,10 +57,32 @@
     // 7. sort Exercise
     // Sort the people alphabetically by last name
 
+    let sorted = people.sort((lastOne,firstOne)=>{
+     let [aFirst,aLast] =  lastOne.split(', ');
+     let [bFirst,bLast] = firstOne.split(', ');
+     return aLast > bLast ? 1 : -1;
+    });
+    console.table(sorted);
+   
+
     // 8. Reduce Exercise
     // Sum up the instances of each of these
-    const data = ['car', 'car', 'truck', 'truck', 'bike', 'walk', 'car', 'van', 'bike', 'walk', 'car', 'van', 'car', 'truck' ];
+    const data = ['car', 'car', 'truck', 'truck', 'bike', 'walk', 'car', 'van', 'bike', 'walk', 'car', 'van', 'car', 'truck'];
 
+const newObject = data.reduce(function(obj, item) {
+  if (!obj[item]) {
+    console.log(`Initializing ${item}`);
+    obj[item] = 0;
+  }
+  obj[item]++;  // Always increment the count
+  
+  console.log(`${item}: ${obj[item]}`);  // Log the current count of the item
+
+  return obj;
+}, {});
+
+
+    console.table(newObject);
   </script>
 </body>
 </html>
